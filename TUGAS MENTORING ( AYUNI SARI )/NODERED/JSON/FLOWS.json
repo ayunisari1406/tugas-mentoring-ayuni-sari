@@ -1,0 +1,199 @@
+[
+    {
+        "id": "077c3cbfbd251567",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8eaad97b18886c7c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f0d12f171d93f26e",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": "1"
+    },
+    {
+        "id": "2598ec58bc76458c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "71167c6cd5ef74d5",
+        "type": "mqtt in",
+        "z": "077c3cbfbd251567",
+        "name": "SUHU",
+        "topic": "/Myskill/test/kirim/temperature",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "2598ec58bc76458c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 320,
+        "wires": [
+            [
+                "dfd7b03dd7b187c5"
+            ]
+        ]
+    },
+    {
+        "id": "dfd7b03dd7b187c5",
+        "type": "ui_gauge",
+        "z": "077c3cbfbd251567",
+        "tab": "f0d12f171d93f26e",
+        "name": "SUHU",
+        "group": "",
+        "order": 1,
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "x": 390,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ff56c76005b496a0",
+        "type": "ui_gauge",
+        "z": "077c3cbfbd251567",
+        "tab": "f0d12f171d93f26e",
+        "name": "KELEMBABAN",
+        "group": "",
+        "order": 0,
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "x": 420,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1a1c12c3bd171383",
+        "type": "mqtt in",
+        "z": "077c3cbfbd251567",
+        "name": "KELEMBABAN",
+        "topic": "/Myskill/test/kirim/humidity",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "2598ec58bc76458c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "ff56c76005b496a0"
+            ]
+        ]
+    },
+    {
+        "id": "59b42a4b20d00829",
+        "type": "ui_switch",
+        "z": "077c3cbfbd251567",
+        "tab": "f0d12f171d93f26e",
+        "name": "LED OREN",
+        "topic": "",
+        "group": "",
+        "order": 0,
+        "onvalue": "oren1",
+        "offvalue": "oren0",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "056876f4a41ba2e4"
+            ]
+        ]
+    },
+    {
+        "id": "056876f4a41ba2e4",
+        "type": "mqtt out",
+        "z": "077c3cbfbd251567",
+        "name": "KONTROL LED",
+        "topic": "/Myskill/test/mqtt",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2598ec58bc76458c",
+        "x": 420,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "bb9e884de36129fb",
+        "type": "ui_switch",
+        "z": "077c3cbfbd251567",
+        "tab": "f0d12f171d93f26e",
+        "name": "LED KUNING",
+        "topic": "",
+        "group": "",
+        "order": 0,
+        "onvalue": "kuning1",
+        "offvalue": "kuning0",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "056876f4a41ba2e4"
+            ]
+        ]
+    }
+]
